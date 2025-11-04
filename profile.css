@@ -179,22 +179,22 @@ footer{ margin-top:auto; width:100%; }
 .footer-container{
 display:flex; justify-content:space-between; align-items:flex-start;
 gap:1em; flex-wrap:wrap; padding:2em; position:relative; width:100%;
-color:#000000;
-background: linear-gradient(45deg, #0190b1, var(--brand-2));
+color:#ffffff;
+background-color:#4255ff;
 }
 .footer-container > div{ min-width:17.5em; padding:.5em; }
 .logo img{ max-width:20em; display:block; margin:0 auto 1em; }
 .textfooter{ font-size:1em; }
 .copyright{
-position:absolute; top:.5em; left:1em; font-size:.8em; color:#000000;
+position:absolute; top:.5em; left:1em; font-size:.8em; color:#ffffff;
 }
 .social-media h3::after,
 .contact-us h3::after{
 content:""; display:block; width:40px; height:2px;
-background: rgba(0, 0, 0, 0.5); margin:10px 0;
+background: rgba(255, 255, 255, 0.5); margin:10px 0;
 }
 .social-media p,
 .contact-us p{
 display:flex; align-items:center; gap:10px; margin:8px 0;
 }
-.contact-us a{ color:#000000; }
+.contact-us a{ color:#ffffff; }
