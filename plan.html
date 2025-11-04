@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Weekly Study Plan</title>
+  <link rel="stylesheet" href="plan.css" />
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container">
+      <div class="nav">
+        <a class="brand" href="#">
+          <img src="PrepWiseLogo.png" alt="PrepWise Logo" class="logo-img" style="height:30px;">
+          <span>PrepWise</span>
+        </a>
+
+        <nav>
+          <a href="#" style="font-weight:700;">Home</a>
+          <a href="plan.html">Plan</a>
+          <a href="#">Pomodoro</a>
+          <a href="#">Achievements</a>
+          <a href="profile.html">Profile</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- PAGE TITLE -->
+  <section class="page-title">
+    <h1>Weekly Study Plan</h1>
+    <p class="subtitle">
+      Each chapter is color-coded by difficulty. Exam dates and total chapters are shown below.
+    </p>
+    <div class="export-actions" style="margin-top:1rem;">
+      <button id="exportBtn" class="btn btn-primary">⬇️ Export / 🖨️ Print</button>
+    </div>
+  </section>
+
+  <!-- WEEKLY SCHEDULE -->
+  <main id="planContent" class="schedule-container">
+    <div class="day">
+      <h2>Monday</h2>
+      <div class="chapter easy">
+        <div class="chapter-title">Math — Ch.1 (Algebra)</div>
+        <div class="meta">Exam: Dec 10 • 8 Chapters</div>
+      </div>
+      <div class="chapter medium">
+        <div class="chapter-title">English — Ch.2 (Reading)</div>
+        <div class="meta">Exam: Dec 18 • 5 Chapters</div>
+      </div>
+      <div class="chapter easy">
+        <div class="chapter-title">Physics — Ch.1 (Motion)</div>
+        <div class="meta">Exam: Dec 12 • 6 Chapters</div>
+      </div>
+    </div>
+
+    <div class="day">
+      <h2>Tuesday</h2>
+      <div class="chapter hard">
+        <div class="chapter-title">Chemistry — Ch.5 (Organic)</div>
+        <div class="meta">Exam: Dec 15 • 6 Chapters</div>
+      </div>
+      <div class="chapter easy">
+        <div class="chapter-title">History — Ch.2 (Civilizations)</div>
+        <div class="meta">Exam: Dec 25 • 3 Chapters</div>
+      </div>
+    </div>
+
+    <div class="day">
+      <h2>Wednesday</h2>
+      <div class="chapter medium">
+        <div class="chapter-title">Geography — Ch.1 (Maps)</div>
+        <div class="meta">Exam: Dec 22 • 4 Chapters</div>
+      </div>
+      <div class="chapter easy">
+        <div class="chapter-title">English — Ch.3 (Writing)</div>
+        <div class="meta">Exam: Dec 18 • 5 Chapters</div>
+      </div>
+    </div>
+
+    <div class="day">
+      <h2>Thursday</h2>
+      <div class="chapter hard">
+        <div class="chapter-title">CS — Ch.4 (Databases)</div>
+        <div class="meta">Exam: Dec 22 • 7 Chapters</div>
+      </div>
+      <div class="chapter easy">
+        <div class="chapter-title">CS — Ch.2 (HTML)</div>
+        <div class="meta">Exam: Dec 22 • 7 Chapters</div>
+      </div>
+    </div>
+
+    <div class="day">
+      <h2>Friday</h2>
+      <div class="chapter medium">
+        <div class="chapter-title">Biology — Ch.1 (Cells)</div>
+        <div class="meta">Exam: Dec 20 • 9 Chapters</div>
+      </div>
+      <div class="chapter easy">
+        <div class="chapter-title">Biology — Ch.2 (Genetics)</div>
+        <div class="meta">Exam: Dec 20 • 9 Chapters</div>
+      </div>
+    </div>
+
+    <div class="day">
+      <h2>Saturday</h2>
+      <div class="chapter hard">
+        <div class="chapter-title">Economics — Ch.3 (Market)</div>
+        <div class="meta">Exam: Dec 28 • 4 Chapters</div>
+      </div>
+      <div class="chapter easy">
+        <div class="chapter-title">Economics — Ch.1 (Basics)</div>
+        <div class="meta">Exam: Dec 28 • 4 Chapters</div>
+      </div>
+    </div>
+
+    <div class="day">
+      <h2>Sunday</h2>
+      <div class="chapter easy">
+        <div class="chapter-title">Math — Ch.4 (Geometry)</div>
+        <div class="meta">Exam: Dec 10 • 8 Chapters</div>
+      </div>
+      <div class="chapter medium">
+        <div class="chapter-title">Math — Ch.5 (Trigonometry)</div>
+        <div class="meta">Exam: Dec 10 • 8 Chapters</div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="logo">
+        <div class="copyright">© 2025 PrepWise</div>
+        <img src="PrepWiseLogo.png" alt="PrepWise logo" />
+        <p class="textfooter">Smart study planner for students.</p>
+      </div>
+
+      <div class="social-media">
+        <h3>Follow us</h3>
+        <p><i>in</i> LinkedIn</p>
+        <p><i>t</i> Twitter/X</p>
+        <p><i>ig</i> Instagram</p>
+      </div>
+
+      <div class="contact-us">
+        <h3>Contact</h3>
+        <p><i>@</i> <a href="mailto:support@prepwise.app">support@prepwise.app</a></p>
+        <p><i>☎</i> +966-555-000-000</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ✅ JAVASCRIPT -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const exportBtn = document.getElementById("exportBtn");
+      if (!exportBtn) {
+        console.error("❌ Export button not found!");
+        return;
+      }
+      exportBtn.addEventListener("click", function() {
+        console.log("✅ Export button clicked.");
+        window.print();
+      });
+    });
+  </script>
+</body>
+</html>
