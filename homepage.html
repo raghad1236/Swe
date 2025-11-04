@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title> homepage • PrepWise</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Header & Top Navigation -->
+  <header class="header">
+    <div class="container">
+      <div class="nav">
+       <a class="brand" href="#">
+  <img src="PrepWiseLogo.png" alt="PrepWise Logo" class="logo-img">
+  <span>PrepWise</span>
+</a>
+
+        <nav>
+          <a href="#" aria-current="page" style="font-weight:700;">Home</a>
+          <a href="#">Plan</a>
+          <a href="#">Pomodoro</a>
+          <a href="#">Achievements</a>
+          <a href="#">Profile</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Hero: Greeting + Quick Actions -->
+    <section class="hero">
+      <div>
+        <h1>Welcome, Rathath! 👋</h1>
+        <p>Your focus for today is ready. Keep the streak going.</p>
+
+        <div class="actions">
+          <a class="btn" href="#">Start Pomodoro</a>
+          <a class="btn ghost" href="#">Open Plan Page</a>
+          <a class="btn secondary" href="#">Export Full Schedule</a>
+        </div>
+      </div>
+
+      <!-- Progress card -->
+      <div class="card-1" aria-label="Today's progress">
+        <h3 style="margin-top:0;">Today's Progress</h3>
+        <p class="helper">4 of 6 tasks completed</p>
+        <progress value="4" max="6" style="width:100%; height:1.25em;"></progress>
+        <p class="helper" style="margin-top:0.5em;">67% complete</p>
+      </div>
+    </section>
+
+    <!-- Grid: Subjects + Today’s Tasks -->
+    <section class="grid-2" style="margin-top:1.5em;">
+      <!-- Table A – Subjects (CONTROL AREA) -->
+      <div class="card-1">
+        <div class="row between center">
+          <h2 style="margin:0;"> Subjects Table  </h2>
+          <div class="filters">
+            <label for="filterSubj" class="helper" style="align-self:center;">Filter</label>
+            <select id="filterSubj">
+              <option>All Subjects</option>
+              <option>Database</option>
+              <option>Networks</option>
+              <option>Software Engineering</option>
+              <option>Security</option>
+            </select>
+          </div>
+        </div>
+
+        <p class="helper" style="margin-top:0.5em;">
+          Any change here (add/edit/delete/generate) updates all other pages automatically.
+        </p>
+
+        <table class="table" aria-describedby="subjects-note">
+          <thead>
+            <tr>
+              <th class="col-subject">Subject</th>
+              <th class="col-date">Exam Date</th>
+              <th class="col-actions">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Sample subjects; in PHP loop and replace IDs/values -->
+            <tr>
+              <td class="td-clip" title="Database">Database</td>
+              <td class="col-date"><time datetime="2025-11-18">2025-11-18</time></td>
+              <td>
+                <div class="cell-actions">
+                  <a class="btn ghost" href="edit-subject.html?id=DB101">Edit</a>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td class="td-clip" title="Networks">Networks</td>
+              <td class="col-date"><time datetime="2025-11-23">2025-11-23</time></td>
+              <td>
+                <div class="cell-actions">
+                  <a class="btn ghost" href="edit-subject.html?id=NW201">Edit</a>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td class="td-clip" title="Software Engineering">Software Engineering</td>
+              <td class="col-date"><time datetime="2025-12-01">2025-12-01</time></td>
+              <td>
+                <div class="cell-actions">
+                  <a class="btn ghost" href="edit-subject.html?id=SE301">Edit</a>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td class="td-clip" title="Security">Security</td>
+              <td class="col-date"><time datetime="2025-12-08">2025-12-08</time></td>
+              <td>
+                <div class="cell-actions">
+                  <a class="btn ghost" href="edit-subject.html?id=SEC401">Edit</a>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- Single Generate Plan & Add Subject buttons -->
+        <div class="table-actions-right">
+          <a class="btn" href="generate-plan.html">Generate Plan</a>
+          <a class="btn" href="add-subject.html">Add Subject</a>
+        </div>
+
+        
+      </div>
+
+      <!-- Table B – Today’s Tasks (FORM + checkboxes) -->
+      <div class="card-1">
+        <h2 style="margin-top:0;">Today’s Tasks </h2>
+        <p class="helper">Check <strong>Done</strong> and click Save. Unchecked tasks are carried to tomorrow by PHP.</p>
+
+        <!-- In PHP: method="POST" action="update_tasks.php" -->
+        <form method="POST" action="update_tasks.php">
+          <table class="table tasks-table">
+            <thead>
+              <tr>
+                <th class="col-task">Task</th>
+                <th class="col-subject">Subject</th>
+                <th class="col-date">Due</th>
+                <th class="col-status">Done</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Example rows. In PHP, loop tasks for TODAY. -->
+              <tr>
+                <td>Chapter 1 — Networks</td>
+                <td>Networks</td>
+                <td class="col-date">Today</td>
+                <td class="col-status">
+                  <input class="chk" type="checkbox" name="done[201]" value="1" aria-label="Mark task 201 done">
+                  <input type="hidden" name="task_id[]" value="201">
+                </td>
+              </tr>
+              <tr>
+                <td>Chapter 2 — Database</td>
+                <td>Database</td>
+                <td class="col-date">Today</td>
+                <td class="col-status">
+                  <input class="chk" type="checkbox" name="done[202]" value="1" aria-label="Mark task 202 done">
+                  <input type="hidden" name="task_id[]" value="202">
+                </td>
+              </tr>
+              <tr>
+                <td>Chapter 3 — Software Engineering</td>
+                <td>Software Engineering</td>
+                <td class="col-date">Today</td>
+                <td class="col-status">
+                  <input class="chk" type="checkbox" name="done[203]" value="1" aria-label="Mark task 203 done">
+                  <input type="hidden" name="task_id[]" value="203">
+                </td>
+              </tr>
+              <tr>
+                <td>Chapter 4 — Security</td>
+                <td>Security</td>
+                <td class="col-date">Today</td>
+                <td class="col-status">
+                  <input class="chk" type="checkbox" name="done[204]" value="1" aria-label="Mark task 204 done">
+                  <input type="hidden" name="task_id[]" value="204">
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="table-actions-right">
+           <a href="homepage.html" class="btn">Save Task Status</a>
+
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- Table C – Upcoming Exams (READ-ONLY) -->
+    <section class="card-1" style="margin-top:1.25em;">
+      <h2 style="margin-top:0;">Upcoming Exams </h2>
+      <p class="helper">Displays subject name, exam date, and progress. Automatically updated from Subjects table.</p>
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th class="col-subject">Subject</th>
+            <th class="col-date">Exam Date</th>
+            <th class="col-status">Progress</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="td-clip" title="Database">Database</td>
+            <td class="col-date"><time datetime="2025-11-18">2025-11-18</time></td>
+            <td><span class="progress-chip">80%</span></td>
+          </tr>
+          <tr>
+            <td class="td-clip" title="Networks">Networks</td>
+            <td class="col-date"><time datetime="2025-11-23">2025-11-23</time></td>
+            <td><span class="progress-chip">40%</span></td>
+          </tr>
+          <tr>
+            <td class="td-clip" title="Software Engineering">Software Engineering</td>
+            <td class="col-date"><time datetime="2025-12-01">2025-12-01</time></td>
+            <td><span class="progress-chip">25%</span></td>
+          </tr>
+          <tr>
+            <td class="td-clip" title="Security">Security</td>
+            <td class="col-date"><time datetime="2025-12-08">2025-12-08</time></td>
+            <td><span class="progress-chip">60%</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="logo">
+        <div class="copyright">© 2025 PrepWise</div>
+        <img src="PrepWiseLogo.png" alt="PrepWise logo" />
+        <p class="textfooter">Smart study planner for students.</p>
+      </div>
+
+      <div class="social-media">
+        <h3>Follow us</h3>
+        <p><i>in</i> LinkedIn</p>
+        <p><i>t</i> Twitter/X</p>
+        <p><i>ig</i> Instagram</p>
+      </div>
+
+      <div class="contact-us">
+        <h3>Contact</h3>
+        <p><i>@</i> <a href="mailto:support@prepwise.app">support@prepwise.app</a></p>
+        <p><i>☎</i> +966-555-000-000</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
