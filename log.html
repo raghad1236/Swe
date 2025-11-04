@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Login • PrepWise</title>
+  <style>
+    /* ===================== Reset & Base ===================== */
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    
+    :root{
+      --bg: #F9FAFB;
+      --text: #111827;
+      --muted: #6B7280;
+      --surface: #FFFFFF;
+      --border: #E5E7EB;
+      --brand: #4F46E5;
+      --brand-2: #6A5DFF;
+      --shadow: 0 10px 20px rgba(0,0,0,.08);
+      --radius: 16px;
+    }
+
+    body{
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, "Open Sans", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ===================== Layout ===================== */
+    .container{
+      max-width: 62.5em;
+      margin: 0 auto;
+      padding: 1.5em;
+    }
+
+    /* ===================== Header & Navigation ===================== */
+    .header{
+      background: var(--surface);
+      border-bottom: 1px solid #eee;
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:.875em 0;
+    }
+    .brand{
+      display:flex; align-items:center; gap:.75em;
+      font-weight:700; font-size:1.25em; color: var(--brand);
+      text-decoration: none;
+    }
+    .brand .logo-img {
+      width: 52px;
+      height: 52px;
+      object-fit: contain;
+    }
+
+    /* ===================== Login/Signup Styles ===================== */
+    .auth-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 70vh;
+      padding: 2em 0;
+    }
+
+    .auth-page {
+      background: var(--surface);
+      padding: 40px 30px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .auth-page { display: block; }
+    .auth-page.hidden { display: none; }
+
+    .auth-logo {
+      font-size: 28px;
+      font-weight: 700;
+      color: #333;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .auth-tagline {
+      color: var(--muted);
+      margin-bottom: 30px;
+      font-size: 14px;
+    }
+
+    .auth-page h1 {
+      margin-bottom: 30px;
+      color: #333;
+      font-weight: 600;
+      font-size: 24px;
+    }
+
+    .input-group {
+      margin-bottom: 20px;
+      text-align: left;
+    }
+
+    .auth-input {
+      width: 100%;
+      padding: 15px;
+      border: 2px solid var(--border);
+      border-radius: 10px;
+      font-size: 16px;
+      transition: all 0.3s ease;
+      background: #f8f9fa;
+    }
+
+    .auth-input:focus {
+      outline: none;
+      border-color: var(--brand);
+      background: #fff;
+      box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+    }
+
+    .auth-btn {
+      padding: 15px 30px;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      width: 100%;
+      margin: 5px 0;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--brand) 0%, var(--brand-2) 100%);
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      border: 2px solid var(--border);
+      color: var(--muted);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--brand);
+      color: var(--brand);
+    }
+
+    .auth-divider {
+      margin: 25px 0;
+      color: #999;
+      font-size: 14px;
+      position: relative;
+    }
+
+    .auth-divider::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: var(--border);
+      z-index: 1;
+    }
+
+    .auth-divider span {
+      background: #fff;
+      padding: 0 15px;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* ===================== Footer ===================== */
+    footer { margin-top: auto; width:100%; }
+    .footer-container{
+      display:flex; justify-content:space-between; align-items:flex-start;
+      gap:1em; flex-wrap:wrap; padding:2em; position:relative; width:100%;
+      color:#fff;
+      background: linear-gradient(45deg, #0190b1, var(--brand-2));
+    }
+    .footer-container > div { min-width:17.5em; padding:.5em; }
+    .footer-logo img { max-width:120px; display:block; margin:0 auto 1em; }
+    .textfooter{ font-size:1em; }
+    .copyright{
+      position:absolute; top:.5em; left:1em; font-size:.8em; color:#E6E6E6;
+    }
+    .social-media h3::after,
+    .contact-us h3::after{
+      content:""; display:block; width:40px; height:2px;
+      background: rgba(255,255,255,.5); margin:10px 0;
+    }
+    .social-media p,
+    .contact-us p{
+      display:flex; align-items:center; gap:10px; margin:8px 0;
+    }
+    .contact-us a{ color:#fff; }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <div class="nav">
+        <a class="brand" href="homepage.html">
+          <img src="PrepWiseLogo.png" alt="PrepWise Logo" class="logo-img">
+          <span>PrepWise</span>
+        </a>
+      
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Auth Content -->
+  <main class="container">
+    <div class="auth-container">
+      <!-- Welcome Page -->
+      <div id="welcomePage" class="auth-page">
+        <div class="auth-logo">
+          <span>PrepWise</span>
+        </div>
+        <p class="auth-tagline">Smart study planner for students</p>
+        <h1>Welcome</h1>
+        <button id="goLogin" class="auth-btn btn-primary">Log In</button>
+        <div class="auth-divider"><span>or</span></div>
+        <button id="goSignup" class="auth-btn btn-secondary">Create Account</button>
+      </div>
+
+      <!-- Login Page -->
+      <div id="loginPage" class="auth-page hidden">
+        <div class="auth-logo">
+          <span>PrepWise</span>
+        </div>
+        <h1>Welcome Back</h1>
+        <div class="input-group">
+          <input id="loginEmail" type="email" placeholder="Email address" class="auth-input">
+        </div>
+        <div class="input-group">
+          <input id="loginPass" type="password" placeholder="Password" class="auth-input">
+        </div>
+        <button id="loginBtn" class="auth-btn btn-primary">Log In</button>
+        <button id="backToMain" class="auth-btn btn-secondary">Back to Home</button>
+      </div>
+
+      <!-- Signup Page -->
+      <div id="signupPage" class="auth-page hidden">
+        <div class="auth-logo">
+          <span>PrepWise</span>
+        </div>
+        <h1>Create Account</h1>
+        <div class="input-group">
+          <input id="signupName" type="text" placeholder="Full name" class="auth-input">
+        </div>
+        <div class="input-group">
+          <input id="signupEmail" type="email" placeholder="Email address" class="auth-input">
+        </div>
+        <div class="input-group">
+          <input id="signupPass" type="password" placeholder="Password" class="auth-input">
+        </div>
+        <button id="signupBtn" class="auth-btn btn-primary">Create Account</button>
+        <button id="backToMain2" class="auth-btn btn-secondary">Back to Home</button>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-logo">
+        <div class="copyright">© 2025 PrepWise</div>
+        <img src="PrepWiseLogo.png" alt="PrepWise logo" />
+        <p class="textfooter">Smart study planner for students.</p>
+      </div>
+
+      <div class="social-media">
+        <h3>Follow us</h3>
+        <p><i>in</i> LinkedIn</p>
+        <p><i>t</i> Twitter/X</p>
+        <p><i>ig</i> Instagram</p>
+      </div>
+
+      <div class="contact-us">
+        <h3>Contact</h3>
+        <p><i>@</i> <a href="mailto:support@prepwise.app">support@prepwise.app</a></p>
+        <p><i>☎</i> +966-555-000-000</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Page navigation
+    const welcomePage = document.getElementById('welcomePage');
+    const loginPage = document.getElementById('loginPage');
+    const signupPage = document.getElementById('signupPage');
+
+    function showPage(page) {
+      // Hide all pages
+      welcomePage.classList.add('hidden');
+      loginPage.classList.add('hidden');
+      signupPage.classList.add('hidden');
+      
+      // Show the selected page
+      page.classList.remove('hidden');
+    }
+    document.getElementById('goSignup').onclick = () => showPage(signupPage);
+    document.getElementById('backToMain').onclick = () => showPage(welcomePage);
+    document.getElementById('backToMain2').onclick = () => showPage(welcomePage);
+
+    // Signup functionality
+
+    // Event listeners
+    document.getElementById('goLogin').onclick = () => showPage(loginPage);
+    document.getElementById('signupBtn').onclick = () => {
+      const name = document.getElementById('signupName').value.trim();
+      const email = document.getElementById('signupEmail').value.trim();
+      const pass = document.getElementById('signupPass').value;
+      
+      if (!name || !email || !pass) {
+        alert('Please fill all fields');
+        return;
+      }
+      
+      localStorage.setItem('demoUser', JSON.stringify({name, email, pass}));
+      // Redirect to homepage after signup
+      window.location.href = 'homepage.html';
+    };
+
+    // Login functionality
+    document.getElementById('loginBtn').onclick = () => {
+      const email = document.getElementById('loginEmail').value.trim();
+      const pass = document.getElementById('loginPass').value;
+      const user = JSON.parse(localStorage.getItem('demoUser') || '{}');
+      
+      if (email === user.email && pass === user.pass) {
+        // Redirect to homepage after login
+        window.location.href = 'homepage.html';
+      } else {
+        alert('Invalid credentials');
+      }
+    };
+  </script>
+</body>
+</html>
