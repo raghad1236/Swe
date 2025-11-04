@@ -1,0 +1,243 @@
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(180deg, #0b1220, #18243a);
+  color: #fff;
+  margin: 0;
+  padding: 0;
+}
+
+
+.header {
+  background: #ffffff;
+  border-bottom: 1px solid #eee;
+  width: 100%;
+}
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.875em 1.5em;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75em;
+  font-weight: 700;
+  font-size: 1.25em;
+  color: #4F46E5;
+  text-decoration: none;
+}
+.brand svg {
+  width: 1.75em;
+  height: 1.75em;
+}
+.header nav a {
+  text-decoration: none;
+  color: #111827;
+  padding: 0.5em 0.75em;
+  border-radius: 10px;
+  transition: 0.2s;
+}
+.header nav a:hover {
+  background: #F3F4F6;
+}
+
+/* ===================== Container ===================== */
+.pomodoro-container {
+  max-width: 420px;
+  margin: 100px auto;
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.4);
+  text-align: center;
+}
+
+/* ===================== Titles ===================== */
+.page-title {
+  font-size: 26px;
+  margin-bottom: 20px;
+}
+
+.section-title {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #cbd5e1;
+}
+
+/* ===================== Mode Buttons ===================== */
+.modes {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+.modes input[type="radio"] {
+  display: none;
+}
+
+.mode {
+  background: transparent;
+  border: 2px solid #3b82f6;
+  color: #3b82f6;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.modes input[type="radio"]:checked + .mode {
+  background: #3b82f6;
+  color: #fff;
+}
+
+.mode:hover {
+  background: rgba(59, 130, 246, 0.1);
+}
+
+
+.timer-display {
+  font-size: 60px;
+  font-weight: bold;
+  letter-spacing: 3px;
+  margin: 15px 0;
+  color: #fff;
+  position: relative;
+}
+
+/* default 25:00 */
+.timer-display .minutes::after {
+  content: "25";
+}
+.timer-display .seconds::after {
+  content: "00";
+}
+
+
+#mode50:checked ~ .timer-section .minutes::after {
+  content: "50";
+}
+
+/* hide actual text, only show ::after text */
+.minutes,
+.seconds {
+  color: transparent;
+  position: relative;
+}
+.minutes::after,
+.seconds::after {
+  color: #fff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+
+/* ===================== Buttons ===================== */
+.timer-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.btn {
+  padding: 10px 18px;
+  font-size: 15px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+  transition: all 0.2s ease;
+}
+
+.start {
+  background: #10b981;
+}
+.start:hover {
+  background: #0d966e;
+}
+
+.pause {
+  background: #f59e0b;
+}
+.pause:hover {
+  background: #d97706;
+}
+
+.reset {
+  background: #ef4444;
+}
+.reset:hover {
+  background: #dc2626;
+}
+
+
+.session-info {
+  margin-top: 20px;
+  font-size: 15px;
+  color: #cbd5e1;
+}
+.session-info span {
+  color: #3b82f6;
+  font-weight: bold;
+}
+
+
+footer {
+  margin-top: auto;
+  width: 100%;
+}
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1em;
+  flex-wrap: wrap;
+  padding: 2em;
+  position: relative;
+  width: 100%;
+  color: #fff;
+  background: linear-gradient(45deg, #0190b1, #6A5DFF);
+}
+.footer-container > div {
+  min-width: 17.5em;
+  padding: 0.5em;
+}
+.logo img {
+  max-width: 20em;
+  display: block;
+  margin: 0 auto 1em;
+}
+.textfooter {
+  font-size: 1em;
+}
+.copyright {
+  position: absolute;
+  top: 0.5em;
+  left: 1em;
+  font-size: 0.8em;
+  color: #E6E6E6;
+}
+.social-media h3::after,
+.contact-us h3::after {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.5);
+  margin: 10px 0;
+}
+.social-media p,
+.contact-us p {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 8px 0;
+}
+.contact-us a {
+  color: #fff;
+}

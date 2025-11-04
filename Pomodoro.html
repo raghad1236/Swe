@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pomodoro Timer</title>
+  <link rel="stylesheet" href="pomodoro.css">
+</head>
+<body>
+
+  <!-- ===================== HEADER ===================== -->
+  <header class="header">
+    <div class="nav">
+      <a href="home.html" class="brand">PrepWise</a>
+      <nav>
+        <a href="home.html">Home</a>
+        <a href="plan.html">Plan</a>
+        <a href="pomodoro.html">Pomodoro</a>
+        <a href="achievements.html">Achievements</a>
+        <a href="profile.html">Profile</a>
+      </nav>
+    </div>
+  </header>
+
+ 
+  <main class="pomodoro-container">
+    <h1 class="page-title">Pomodoro Timer</h1>
+
+    <!-- Mode Selection -->
+    <section class="mode-section">
+      <h2 class="section-title">Select Mode</h2>
+      <div class="modes">
+        <input type="radio" name="mode" id="mode25" checked>
+        <label for="mode25" class="mode">25 / 5</label>
+
+        <input type="radio" name="mode" id="mode50">
+        <label for="mode50" class="mode">50 / 10</label>
+      </div>
+    </section>
+
+    <!-- Timer Display -->
+    <section class="timer-section">
+      <div class="timer-display">
+        <span class="minutes">25</span>
+        <span class="colon">:</span>
+        <span class="seconds">00</span>
+      </div>
+
+      <div class="timer-buttons">
+        <button class="btn start">Start</button>
+        <button class="btn pause">Pause</button>
+        <button class="btn reset">Reset</button>
+      </div>
+    </section>
+
+    <section class="session-info">
+      <p>Current Status: <span class="status">Ready</span></p>
+      <p>Completed Sessions: <span class="sessions">0</span></p>
+    </section>
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer>
+    <div class="footer-container">
+      <div class="logo">
+        <img src="logo.png" alt="PrepWise Logo">
+      </div>
+
+      <div class="textfooter">
+        <p>Stay consistent, keep growing 🌱</p>
+        <p>Manage your time and track your progress efficiently.</p>
+      </div>
+
+      <div class="social-media">
+        <h3>Follow Us</h3>
+        <p>📘 <a href="#">Facebook</a></p>
+        <p>🐦 <a href="#">Twitter</a></p>
+        <p>📸 <a href="#">Instagram</a></p>
+      </div>
+
+      <div class="contact-us">
+        <h3>Contact Us</h3>
+        <p>✉️ <a href="mailto:info@prepwise.com">info@prepwise.com</a></p>
+        <p>📞 +966 555 123 456</p>
+      </div>
+
+      <p class="copyright">© 2025 PrepWise. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
