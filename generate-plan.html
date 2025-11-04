@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Generate Plan • PrepWise</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <div class="nav">
+        <a class="brand" href="homepage.html">
+  <img src="PrepWiseLogo.png" alt="PrepWise Logo" class="logo-img">
+  <span>PrepWise</span>
+</a>
+
+        <nav>
+          <a href="homepage.html">Home</a>
+          <a href="#">Plan</a>
+          <a href="#">Pomodoro</a>
+          <a href="#">Achievements</a>
+          <a href="#">Profile</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="container add-page">
+    <div class="add-head">
+      <h1>Generate Study Plan</h1>
+      <p class="helper">Fill in the subject and chapter difficulties (max 4). In the PHP phase this form will create tasks automatically.</p>
+    </div>
+
+    <section class="add-card">
+      <!-- In PHP, set method="POST" action="generate_plan.php" -->
+      <form>
+        <div class="form-grid">
+          <!-- Subject -->
+          <div class="form-row">
+            <label for="subject">Subject</label>
+            <select id="subject" class="select" name="subject">
+              <!-- In PHP: populate from DB -->
+              <option>Database</option>
+              <option>Networks</option>
+              <option>Software Engineering</option>
+              <option>Security</option>
+            </select>
+            <span class="helper">Choose the subject you want to generate tasks for.</span>
+          </div>
+
+          <!-- Number of chapters -->
+          <div class="form-row">
+            <label for="chapters">Number of Chapters (max 4)</label>
+            <select id="chapters" class="select" name="chapters">
+              <option value="1">1 chapter</option>
+              <option value="2">2 chapters</option>
+              <option value="3">3 chapters</option>
+              <option value="4" selected>4 chapters</option>
+            </select>
+            <span class="helper">We will only read the first N difficulty fields below.</span>
+          </div>
+
+          <!-- Difficulties (show all 4; PHP will honor N) -->
+          <fieldset class="choice-set">
+            <legend>Chapter Difficulties</legend>
+            <div class="choice-grid">
+              <div class="choice-line">
+                <span>1</span>
+                <select class="select" name="diff1">
+                  <option value="easy">Easy</option>
+                  <option value="medium">Medium</option>
+                  <option value="hard">Hard</option>
+                </select>
+              </div>
+              <div class="choice-line">
+                <span>2</span>
+                <select class="select" name="diff2">
+                  <option value="">— not used —</option>
+                  <option value="easy">Easy</option>
+                  <option value="medium">Medium</option>
+                  <option value="hard">Hard</option>
+                </select>
+              </div>
+              <div class="choice-line">
+                <span>3</span>
+                <select class="select" name="diff3">
+                  <option value="">— not used —</option>
+                  <option value="easy">Easy</option>
+                  <option value="medium">Medium</option>
+                  <option value="hard">Hard</option>
+                </select>
+              </div>
+              <div class="choice-line">
+                <span>4</span>
+                <select class="select" name="diff4">
+                  <option value="">— not used —</option>
+                  <option value="easy">Easy</option>
+                  <option value="medium">Medium</option>
+                  <option value="hard">Hard</option>
+                </select>
+              </div>
+            </div>
+            <p class="helper" style="margin-top:6px;">
+              Example: if chapters = 3, we’ll read <strong>diff1–diff3</strong> and ignore diff4.
+            </p>
+          </fieldset>
+        </div>
+
+        <div class="actions">
+  <a class="btn" href="#">Generate Plan</a>
+  <a class="btn ghost" href="homepage.html">Cancel</a>
+</div>
+
+      </form>
+    </section>
+  </main>
+
+  <footer>
+  <div class="footer-container">
+    <div class="logo">
+      <div class="copyright">© 2025 PrepWise</div>
+      <img src="PrepWiseLogo.png" alt="PrepWise logo" />
+      <p class="textfooter">Smart study planner for students.</p>
+    </div>
+
+    <div class="social-media">
+      <h3>Follow us</h3>
+      <p><i>in</i> LinkedIn</p>
+      <p><i>t</i> Twitter/X</p>
+      <p><i>ig</i> Instagram</p>
+    </div>
+
+    <div class="contact-us">
+      <h3>Contact</h3>
+      <p><i>@</i> <a href="mailto:support@prepwise.app">support@prepwise.app</a></p>
+      <p><i>☎</i> +966-555-000-000</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
