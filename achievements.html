@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PrepWise • Achievements</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Popup (Alert) */
+    .popup {
+      background: var(--ok-bg);
+      color: var(--ok-ink);
+      border: 1px solid var(--ok-brd);
+      padding: 1em 1.25em;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      margin: 1.25em auto;
+      max-width: 800px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 600;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Achievements grid */
+    .achievements-section {
+      max-width: 900px;
+      margin: 2em auto;
+      padding: 1.5em;
+      background: var(--surface);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .achievements-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5em;
+      margin-top: 1.5em;
+    }
+
+    .achievement-card {
+      background: #fff;
+      border: 1px solid #eee;
+      border-radius: var(--radius);
+      padding: 1.25em;
+      text-align: center;
+      box-shadow: var(--shadow);
+      transition: transform 0.3s ease;
+    }
+
+    .achievement-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .achievement-card img {
+      width: 80px;
+      height: 80px;
+      margin-bottom: 1em;
+    }
+
+    .achievement-card h3 {
+      margin-bottom: 0.5em;
+      color: var(--brand);
+    }
+
+    .achievement-card p {
+      color: var(--muted);
+      font-size: 0.95em;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ================= HEADER ================= -->
+  <header class="header">
+    <div class="container nav">
+      <a href="homepage.html" class="brand">
+        <img src="Prepwise logo.png" alt="PrepWise Logo" class="logo-img">
+        PrepWise
+      </a>
+      <nav>
+        <a href="homepage.html">Home</a>
+        <a href="#">Plan</a>
+        <a href="#">Pomodoro</a>
+        <a href="#" aria-current="page" style="font-weight:700;">Achievements</a>
+        <a href="#">Profile</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Popup alert -->
+    <div class="popup">🎉 Congratulations! You unlocked a new badge: <strong>“3-Day Streak”</strong>!</div>
+
+    <!-- Achievements section -->
+    <section class="achievements-section">
+      <h1 style="text-align:center; color:var(--brand); margin-bottom:1em;">Your Achievements</h1>
+      <p style="text-align:center; color:var(--muted); max-width:600px; margin:0 auto;">
+        Here are your earned milestones that keep you motivated and consistent throughout your study journey.
+      </p>
+
+      <div class="achievements-grid">
+        <div class="achievement-card">
+          <img src="https://cdn-icons-png.flaticon.com/512/190/190411.png" alt="First Task Done">
+          <h3>First Task Done</h3>
+          <p>Completed your very first task! Great start 🎯</p>
+        </div>
+
+        <div class="achievement-card">
+          <img src="https://cdn-icons-png.flaticon.com/512/9290/9290720.png" alt="3-Day Streak">
+          <h3>3-Day Streak</h3>
+          <p>Stayed consistent for three days in a row 🔥</p>
+        </div>
+
+        <div class="achievement-card">
+          <img src="https://cdn-icons-png.flaticon.com/512/3468/3468371.png" alt="All Tasks Completed">
+          <h3>All Tasks Completed Today</h3>
+          <p>Completed all your planned tasks for today ✅</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer>
+    <div class="footer-container">
+      <div class="copyright">© 2025 PrepWise</div>
+
+      <div class="logo">
+        <img src="Prepwise logo.png" alt="PrepWise logo">
+        <p class="textfooter">Smart study planner for students.</p>
+      </div>
+
+      <div class="social-media">
+        <h3>Follow us</h3>
+        <p><i>in</i> LinkedIn</p>
+        <p><i>t</i> Twitter/X</p>
+        <p><i>ig</i> Instagram</p>
+      </div>
+
+      <div class="contact-us">
+        <h3>Contact</h3>
+        <p><i>@</i> <a href="mailto:support@prepwise.app">support@prepwise.app</a></p>
+        <p><i>☎</i> +966-555-000-000</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
