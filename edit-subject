@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Edit Subject • PrepWise</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <div class="nav">
+        <a class="brand" href="homepage.html">
+          <img src="PrepWiseLogo.png" alt="PrepWise Logo" class="logo-img">
+          <span>PrepWise</span>
+        </a>
+        <nav>
+          <a href="homepage.html">Home</a>
+          <a href="#">Plan</a>
+          <a href="#">Pomodoro</a>
+          <a href="#">Achievements</a>
+          <a href="#">Profile</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="container add-page">
+    <div class="add-head">
+      <h1>Edit Subject</h1>
+      <p class="helper">Select the subject you want to modify, then update its details below.</p>
+    </div>
+
+    <section class="add-card">
+      <form onsubmit="redirectHome(event)">
+        <div class="form-grid">
+          <!-- Current subject -->
+          <div class="form-row">
+            <label for="currentSubject">Current Subject</label>
+            <select id="currentSubject" class="select" required>
+              <option>Database</option>
+              <option>Networks</option>
+              <option>Software Engineering</option>
+              <option>Security</option>
+            </select>
+          </div>
+
+          <!-- New details -->
+          <fieldset class="choice-set">
+            <legend>New Details</legend>
+            <div class="form-row">
+              <label for="subjectName">Subject Name</label>
+              <input id="subjectName" class="input" type="text" placeholder="e.g., Database" required>
+            </div>
+
+            <div class="form-row">
+              <label for="examDate">Exam Date</label>
+              <input id="examDate" class="input" type="date" required>
+            </div>
+          </fieldset>
+        </div>
+
+        <!-- Buttons -->
+        <div class="actions">
+          <button type="submit" class="btn">Save Changes</button>
+          <button type="button" class="btn danger ghost" onclick="redirectHome()">Delete Subject</button>
+          <a href="homepage.html" class="btn ghost">Cancel</a>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="logo">
+        <div class="copyright">© 2025 PrepWise</div>
+        <img src="PrepWiseLogo.png" alt="PrepWise logo" />
+        <p class="textfooter">Smart study planner for students.</p>
+      </div>
+
+      <div class="social-media">
+        <h3>Follow us</h3>
+        <p><i>in</i> LinkedIn</p>
+        <p><i>t</i> Twitter/X</p>
+        <p><i>ig</i> Instagram</p>
+      </div>
+
+      <div class="contact-us">
+        <h3>Contact</h3>
+        <p><i>@</i> <a href="mailto:support@prepwise.app">support@prepwise.app</a></p>
+        <p><i>☎</i> +966-555-000-000</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function redirectHome(event) {
+      if (event) event.preventDefault(); // prevent form refresh
+      window.location.href = "homepage.html";
+    }
+  </script>
+</body>
+</html>
